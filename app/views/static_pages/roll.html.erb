@@ -1,0 +1,10 @@
+<% provide(:title, "Roll a Dice") %>
+<div class="center jumbotron">
+<h1 class="dice_title">Your Dice Results Are</h1>
+<div  class="flex-container">
+<h1><%= @dice1_result %></h1>
+<h1> & </h1>
+<h1><%= @dice2_result %></h1>
+</div>
+<%= link_to "Roll Again",  roll_path, class: "btn btn-lg btn-primary", data: { turbolinks: false, disable_with: 'loading...'} %>
+ 

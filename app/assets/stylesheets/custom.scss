@@ -13,6 +13,12 @@ $blue: #337ab7;
 
 /* universal */
 
+.flex-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 body {
   padding-top: 60px;
 }
@@ -30,6 +36,11 @@ textarea {
   h1 {
     margin-bottom: 10px;
     color: $red;
+    margin-left: 15px;
+      
+  &.dice_title{
+    color:$gray;
+  }
   }
 }
 
@@ -63,6 +74,10 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.tab {
+ margin-left: 1.5 em;
 }
 
 /* header */
