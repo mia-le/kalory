@@ -32,6 +32,12 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "Roll a Dice"
   end
   
+  test "should get new" do
+    get signup_path
+    assert_response :success
+    assert_select "title", "Sign up"
+  end
+  
   test "dice results are integers" do
     get roll_path
     assert_response :success
