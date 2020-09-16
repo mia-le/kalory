@@ -1,0 +1,6 @@
+<% provide(:title, "Accounts List") %>
+<h1>List of users</h1>
+<% @users.each do | user | %>
+<%= user.name %>, <%= user.email %>
+<br/>
+<% end %>
