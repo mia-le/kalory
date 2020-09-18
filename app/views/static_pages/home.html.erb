@@ -1,13 +1,12 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
-<h1>Welcome to the Sample App</h1>
-<h2>
-This is the home page for the
-<a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-sample application.
-</h2>
-<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<div class="center jumbotron thin-font">
+<h3>Welcome to the </h3>
+<h5 class = "center">Nutrition Guessing Game</h5>
+<p style="line-height: 80%;">
+<h2 class="very-thin-font">You can make guesses about the nutrition and diet data for</h2>
+<h2 class="very-thin-font"> generic foods, packaged foods and restaurant meals.</h2>
+<br/>
+<h2 class="very-thin-font">The closer you are, the more points you get!</h2>
+</p>
+<%= link_to "Sign up now!", signup_path, class: "btn btn-lg" %>
 </div>
-
-<%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200"),
-"https://rubyonrails.org/" %>

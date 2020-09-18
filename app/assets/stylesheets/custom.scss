@@ -4,12 +4,14 @@
 
 /* variables */
 
-$light-gray: #777;
-$gray-medium-light: #eaeaea;
+$gray-medium: #777;
+$gray-light: #eeeeee;
 $gray: #555;
-$gray-darker: #222;
+$gray-dark: #222;
 $red: #cc0000;
 $blue: #337ab7;
+$cherry: #C80070;
+$gray-medium-light: #c3c3c3;
 
 /* universal */
 
@@ -20,7 +22,7 @@ $blue: #337ab7;
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 section {
@@ -35,7 +37,6 @@ textarea {
   text-align: center;
   h1 {
     margin-bottom: 10px;
-    color: $red;
     margin-left: 15px;
 
     &.dice_title {
@@ -60,15 +61,47 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-weight: 100;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top:10px;
   text-align: center;
-  font-weight: normal;
-  color: $light-gray;
+  font-weight: 40;
+  color: black;
+}
+
+h3 {
+  font-size: 2.5em;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: $cherry;
+  text-transform: uppercase;
+  font-weight: 10;
+}
+
+h4 {
+  font-size: 3em;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: $cherry;
+  text-transform: uppercase;
+  font-weight: 250;
+}
+
+h5 {
+  font-size: 4em;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: $cherry;
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 p {
@@ -80,20 +113,72 @@ p {
   margin-left: 1.5 em;
 }
 
+.thin-font {
+  font-family: "Trebuchet MS", Helvetica, sans-serif
+}
+
+.very-thin-font {
+  font-family: "Source Sans Pro", Helvetica, sans-serif
+}
+
 /* header */
+
+.site-navigation {
+  margin-bottom: 20px;
+
+  nav {
+    background-color: #fff;
+
+    ul {
+      list-style-type: none;
+      padding-top: 0px;
+      margin: 0;
+      display: flex;
+      flex: auto;
+      float: center;
+
+      li {
+        flex: 1;
+        flex-basis: auto;
+        
+
+        a {
+          color: black;
+          display: inline-block;
+          font-size: large;
+          font-weight: 300;
+          padding: 30px 10px;
+          text-decoration: none;
+          text-transform: uppercase;
+          text-align: center;
+        }
+
+        a:hover {
+          background-color: $gray-medium-light;
+          flex-basis: auto;
+        }
+      }
+    }
+
+
+  }
+}
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: black;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: $light-gray;
+    color: $gray-light;
     text-decoration: none;
+  }
+  
+  a{
+    padding: none;
   }
 }
 
@@ -108,7 +193,7 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
-  color: $light-gray;
+  color: $gray-light;
   a {
     color: $gray;
     &:hover {
@@ -116,6 +201,7 @@ footer {
     }
   }
   small {
+    text-color: gray-light;
     float: left;
   }
   ul {
@@ -173,4 +259,19 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+/* home */
+
+.btn {
+  background: $gray-light;
+  border: 2px solid $gray-medium-light;
+  color: $cherry;
+  padding-top: 5px;
+}
+
+.btn:hover {
+  background-color: $cherry; 
+  color: white;
+  border: 2px solid #fff;
 }

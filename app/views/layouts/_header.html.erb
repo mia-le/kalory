@@ -1,13 +1,16 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-          <li><%= link_to "Roll a Dice", roll_path %></li>
-          <!-- <li> <%= link_to "Log in", '#' %> </li> -->
-        </ul>
+<header>
+  <div class= "site-navigation container">
+   
+      <nav class="nav navbar-nav navbar-fixed top">
+        <div class="row">
+          <ul class ="menu thin-font">
+            <li><%= link_to image_tag("veggies.png",size: "100x50", id:'logo'), root_path, target:"_blank"%></li>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Help", help_path %></li>
+            <li><%= link_to "Roll a Dice", roll_path %></li>
+            <!-- <li> <%= link_to "Log in", '#' %> </li> -->
+          </ul>
+        </div>
       </nav>
   </div>
 </header>
