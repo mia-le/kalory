@@ -42,7 +42,7 @@ function load_new_item() {
   });
   //}
   
-  // hi baby. im ask u, if it return when is_loading === false, when it work? since is_loading = true always after it
+  // if it return when is_loading === false, when it work? since is_loading = true always after it
 }
 
 function check_answer() {
