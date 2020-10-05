@@ -10,7 +10,7 @@ function load_new_item() {
    let random_upc = upc_list[Math.floor(Math.random() * upc_list.length)];
    is_loading = true;
   
-  for (let i = 0; i < upc_list.length; i++) {
+  //for (let i = 0; i < upc_list.length; i++) {
     // let random_upc= upc_list[i] 
     //17-27
     getDetails(random_upc, function(data) {
@@ -18,10 +18,15 @@ function load_new_item() {
     
       document.getElementById('display_food-name').innerHTML = data["item_name"];
       document.getElementById('display_brand-name').innerHTML = data["brand_name"];
+      document.getElementById('display_serving-per-container').innerHTML = data["nf_servings_per_container"];
+      document.getElementById('display_serving-quantity').innerHTML = data["nf_serving_size_qty"];
+      document.getElementById('display_serving-unit').innerHTML = data["nf_serving_size_unit"];
+      document.getElementById('display_food-description').innerHTML = data["nf_ingredient_statement"];
+      document.getElementById('display_calories').innerHTML = data["nf_calories"];
       is_loading = false;
       document.getElementById('btn_load-new').innerHTML = "Load New Item";
     });
-  }
+  //}
 }
 
 
