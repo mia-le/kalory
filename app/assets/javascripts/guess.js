@@ -54,7 +54,7 @@ function check_answer() {
 	if (guess === answer) {
 		document.getElementById("result").innerText = "Your guess is correct!";
 	} else {
-		document.getElementById("result").innerText = "Your guesso is incorrect!";
+		document.getElementById("result").innerText = "Your guess is incorrect!";
 	}
 }
 
