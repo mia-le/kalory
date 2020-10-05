@@ -67,7 +67,7 @@ h1 {
 }
 
 h2 {
-
+  margin-top: 0px;
   font-size: 3.5em;
   letter-spacing: -1px;
   margin-bottom: 20px;
@@ -277,11 +277,16 @@ input {
   background: $gray-light;
   border: 2px solid $gray-medium-light;
   color: $cherry;
-  padding-top: 5px;
+  //padding-top: 5px;
+  margin-top: 10px;
 }
 
 .btn:hover {
   background-color: $cherry;
   color: white;
   border: 2px solid #fff;
+}
+
+.jumbotron{
+  padding: 25px;
 }

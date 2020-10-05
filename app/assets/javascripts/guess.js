@@ -11,24 +11,43 @@ function load_new_item() {
    is_loading = true;
   
   //for (let i = 0; i < upc_list.length; i++) {
-    // let random_upc= upc_list[i] 
+    // let random_upc= upc_list[i] s
     //17-27
     getDetails(random_upc, function(data) {
     //     console.log(`${i+1} at ${data["item_name"]}`);
     
+      // Load in details to DOM
       document.getElementById('display_food-name').innerHTML = data["item_name"];
       document.getElementById('display_brand-name').innerHTML = data["brand_name"];
-      document.getElementById('display_serving-per-container').innerHTML = data["nf_servings_per_container"];
+      document.getElementById('display_serving-per-container').innerHTML =`Serving size: ${data["nf_servings_per_container"]} x ` ;
       document.getElementById('display_serving-quantity').innerHTML = data["nf_serving_size_qty"];
       document.getElementById('display_serving-unit').innerHTML = data["nf_serving_size_unit"];
       document.getElementById('display_food-description').innerHTML = data["nf_ingredient_statement"];
-      document.getElementById('display_calories').innerHTML = data["nf_calories"];
+      document.getElementById('display_calories-label').innerHTML = "Calories: ";
+      
+      let calories = 11;
+      document.getElementById('display_calories-input').setAttribute("answer", calories);
+      document.getElementById('display_calories-input').style.visibility = "visible";
       is_loading = false;
       document.getElementById('btn_load-new').innerHTML = "Load New Item";
     });
   //}
+  
+  // hi baby. im ask u, if it return when is_loading === false, when it work? since is_loading = true always after it
 }
 
+function check_answer() {
+	let answer = parseInt(document.getElementById('display_calories').getAttribute("answer"));
+	let guess = parseInt(document.getElementById('display_calories').value);
+	
+	console.log(answer);
+	
+	if (guess === answer) {
+		document.getElementById("result").innerText = "Your guess is correct!";
+	} else {
+		document.getElementById("result").innerText = "Your guesso is incorrect!";
+	}
+}
 
 const getDetails = function(upc, callback) {
   fetch(`https://nutritionix-api.p.rapidapi.com/v1_1/item?upc=${upc}`, {
@@ -44,4 +63,8 @@ const getDetails = function(upc, callback) {
     callback(err);
   });
 }
+
+document.addEventListener('DOMContentFullyLoaded', (event) => {
+  load_new_item();
+});
 
