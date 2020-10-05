@@ -1,0 +1,2 @@
+module GuessPagesHelper
+end

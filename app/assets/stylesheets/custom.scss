@@ -57,21 +57,24 @@ h6 {
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
+  font-size: 4em;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
   text-align: center;
+  color: $cherry;
+  text-transform: uppercase;
   font-weight: 100;
 }
 
 h2 {
-  font-size: 1.5em;
+
+  font-size: 3.5em;
   letter-spacing: -1px;
-  margin-bottom: 10px;
-  margin-top:10px;
+  margin-bottom: 20px;
   text-align: center;
-  font-weight: 40;
-  color: black;
+  color: $cherry;
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 h3 {
@@ -85,14 +88,20 @@ h3 {
 }
 
 h4 {
-  font-size: 3em;
+  font-size: 1.5em;
   letter-spacing: -1px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
-  color: $cherry;
-  text-transform: uppercase;
-  font-weight: 250;
+  font-weight: 40;
+  color: black;
 }
+
+
+.top-padding {
+  padding-top: 20px;
+}
+
 
 h5 {
   font-size: 4em;
@@ -136,11 +145,12 @@ p {
       display: flex;
       flex: auto;
       float: center;
+      align-items: center;
 
       li {
         flex: 1;
         flex-basis: auto;
-        
+
 
         a {
           color: black;
@@ -176,8 +186,8 @@ p {
     color: $gray-light;
     text-decoration: none;
   }
-  
-  a{
+
+  a {
     padding: none;
   }
 }
@@ -271,7 +281,7 @@ input {
 }
 
 .btn:hover {
-  background-color: $cherry; 
+  background-color: $cherry;
   color: white;
   border: 2px solid #fff;
 }
