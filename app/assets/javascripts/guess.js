@@ -34,8 +34,8 @@ function load_new_item() {
     document.getElementById('display_food-description').innerHTML = data["nf_ingredient_statement"];
     document.getElementById('display_calories-label').innerHTML = "Calories: ";
     
-    let calories = 11;
-    document.getElementById('display_calories-input').setAttribute("answer", calories);
+    //let calories = 11;
+    document.getElementById('display_calories-input').setAttribute("answer",  data["nf_calories"]);
     document.getElementById('display_calories-input').style.visibility = "visible";
     is_loading = false;
     document.getElementById('btn_load-new').innerHTML = "Load New Item";
