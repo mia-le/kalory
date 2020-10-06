@@ -1,5 +1,5 @@
 let is_loading = false;
-const upc_string ='857913004041 688267142840 657082002844 51600080015 78742088679 811392020275 612781101908 90939132019 60522000087 63100109578 846036003611 70253267345 16000296527 32712124 68100896503 41268188703 20000277967'
+const upc_string ='857913004041 688267142840 657082002844 51600080015 78742088679 811392020275 612781101908 90939132019 60522000087 63100109578 846036003611 70253267345 16000296527 32712124 68100896503 41268188703 20000277967 21130046119 18281000077 7753282 84253233187 48121216573 76040000072 37600469623 41190453498 40032002016 77330570060 74336863950 78742088679 41303054369 38000396731 78742084749 36192122893 70253267345 623682108378 75450121520 34952560633 86600000640 637480061025 11150189941 857723004316 688267147265 753182239620 720579791320 41172000368 688267056376 30771096988 688267064661 11110587923 51000025630 73541405269 7753282 28833010805 34952560633 725439980012 658882241037 857400002918 55000406239 41646404760 72668600007 13800139276 80368045226 74880040623 43695083002 18619418659 87684006382 709355468106'
 const upc_list = upc_string.split(" ");
 
 function diu(thing) {
@@ -10,19 +10,26 @@ function diu(thing) {
   return thing;
 }
 
+function per_container_null(spc) {
+  if (spc === null || spc === undefined) {
+    return `Serving size: `
+  } else {
+    return `Serving size: ${spc} x `;
+  }
+
+}
+
+
 function load_new_item() {
   if (is_loading)
     return;
   
   document.getElementById('btn_load-new').innerHTML = "Loading...";
-   let random_upc = upc_list[Math.floor(Math.random() * upc_list.length)];
+  let random_upc = upc_list[Math.floor(Math.random() * upc_list.length)];
    is_loading = true;
   
-  //for (let i = 0; i < upc_list.length; i++) {
-    // let random_upc= upc_list[i] s
-    //17-27
   getDetails(random_upc, function(data) {
-  //     console.log(`${i+1} at ${data["item_name"]}`);
+      //console.log(`${i+1} is ${data["item_name"]}, Serving size: ${data["nf_servings_per_container"]} x ${data["nf_serving_size_qty"]} ${data["nf_serving_size_unit"]} Calories: ${data["nf_calories"]} `);
   
     // Load in details to DOM
     document.getElementById('display_food-name').innerHTML = diu(data["item_name"]);
@@ -34,14 +41,14 @@ function load_new_item() {
     document.getElementById('display_food-description').innerHTML = data["nf_ingredient_statement"];
     document.getElementById('display_calories-label').innerHTML = "Calories: ";
     
-    //let calories = 11;
     document.getElementById('display_calories-input').setAttribute("answer",  data["nf_calories"]);
     document.getElementById('display_calories-input').style.visibility = "visible";
+    
+    
     is_loading = false;
     document.getElementById('btn_load-new').innerHTML = "Load New Item";
   });
-  //}
-  
+
   // if it return when is_loading === false, when it work? since is_loading = true always after it
 }
 
@@ -53,18 +60,24 @@ function check_answer() {
 	
 	if (guess === answer) {
 		document.getElementById("result").innerText = "Your guess is correct!";
+		document.getElementById("result").classList.add("correct");
 	} else {
 		document.getElementById("result").innerText = "Your guess is incorrect!";
+		document.getElementById("result").classList.add("incorrect");
 	}
 }
 
 const getDetails = function(upc, callback) {
-  fetch(`https://nutritionix-api.p.rapidapi.com/v1_1/item?upc=${upc}`, {
-  	"method": "GET",
-  	"headers": {
-  		"x-rapidapi-host": "nutritionix-api.p.rapidapi.com",
-  		"x-rapidapi-key": "597e01564fmsh11569b8f9f701adp1be4f4jsn44a5903a0703"
-  	}
+  // fetch(`https://nutritionix-api.p.rapidapi.com/v1_1/item?upc=${upc}`, {
+  // 	"method": "GET",
+  // 	"headers": {
+  // 		"x-rapidapi-host": "nutritionix-api.p.rapidapi.com",
+  // 		"x-rapidapi-key": "597e01564fmsh11569b8f9f701adp1be4f4jsn44a5903a0703"
+  		
+  // 	}
+  // })
+  fetch(`https://api.nutritionix.com/v1_1/item?upc=${upc}&appId=d15afacc&appKey=f85df72bea4ec47589974a3e9fef9fc7`, {
+  	"method": "GET"
   })
   .then(function(readableStream) { return readableStream.json(); })
   .then(function(jsonData) { callback(jsonData); })
@@ -77,3 +90,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
   load_new_item();
 });
 
+//appid d15afacc
+//"x-rapidapi-key":"f85df72bea4ec47589974a3e9fef9fc7"
