@@ -1,9 +1,6 @@
-<% provide(:title, "Guess the Nutrition Facts") %>
-<h2 class = "center" >Nutrition Guessing Game</h2>
+<% provide(:title, "Guess the Calories") %>
+<h2 class = "center">Calories Guessing Game</h2>
 <div class="center jumbotron">
-<script>
-    load_new_item();
-</script>  
 <button id="btn_load-new" class="btn btn-lg" onclick="load_new_item()">Load New Item</button>
 <h3 id="display_food-name"></h3>
 <h4 id="display_brand-name" class="very-thin-font"></h4>
@@ -18,7 +15,11 @@
 <div class="row">
     <div  class="col-md-6 col-md-offset-3">
         <h4 id="display_calories-label" style="display:inline; color:#C80070"></h4>
-        <input id="display_calories-input" style="display: inline;visibility: hidden;" type="number" />
+        <h4 id="display_calories-output" style="display:inline; color:#C80070"></h4>
+        <!--<input id="display_calories-input" style="display: inline;visibility: hidden;" type="number" />-->
+        <div class="slidecontainer">
+          <input type="range" min="1" max="600" value="300" class="slider" id="display_calories-slider" style="display: inline;visibility: hidden;">
+        </div>
     </div>
 </div>
     <button id="btn_check-answer" class="btn btn-lg" onclick="check_answer()">Check your Guess</button>

@@ -20,11 +20,12 @@ function per_container_null(spc) {
 }
 
 
+
 function load_new_item() {
   if (is_loading)
     return;
   
-  document.getElementById('btn_load-new').innerHTML = "Loading...";
+  document.getElementById("btn_load-new").innerHTML = "Loading...";
   let random_upc = upc_list[Math.floor(Math.random() * upc_list.length)];
    is_loading = true;
   
@@ -35,35 +36,48 @@ function load_new_item() {
     document.getElementById('display_food-name').innerHTML = diu(data["item_name"]);
     
     document.getElementById('display_brand-name').innerHTML = data["brand_name"];
-    document.getElementById('display_serving-per-container').innerHTML =`Serving size: ${data["nf_servings_per_container"]} x ` ;
+    document.getElementById('display_serving-per-container').innerHTML =per_container_null(data["nf_servings_per_container"]) ;
     document.getElementById('display_serving-quantity').innerHTML = data["nf_serving_size_qty"];
     document.getElementById('display_serving-unit').innerHTML = data["nf_serving_size_unit"];
     document.getElementById('display_food-description').innerHTML = data["nf_ingredient_statement"];
     document.getElementById('display_calories-label').innerHTML = "Calories: ";
     
-    document.getElementById('display_calories-input').setAttribute("answer",  data["nf_calories"]);
-    document.getElementById('display_calories-input').style.visibility = "visible";
-    
+    document.getElementById("display_calories-output").setAttribute("answer", data["nf_calories"]);
+    document.getElementById("display_calories-slider").setAttribute("value",  300);
+    document.getElementById("display_calories-output").innerHTML = document.getElementById("display_calories-slider").value;
+    document.getElementById("display_calories-slider").style.visibility = "visible";
+  
     
     is_loading = false;
-    document.getElementById('btn_load-new').innerHTML = "Load New Item";
+    document.getElementById('btn_load-new').innerText = "Load New Item";
   });
 
   // if it return when is_loading === false, when it work? since is_loading = true always after it
 }
 
 function check_answer() {
-	let answer = parseInt(document.getElementById('display_calories-input').getAttribute("answer"));
-	let guess = parseInt(document.getElementById('display_calories-input').value);
+	let answer = parseInt(document.getElementById("display_calories-output").getAttribute("answer"));
+	let guess = parseInt(document.getElementById("display_calories-slider").value);
+	let difference = Math.abs(guess - answer);
+	console.log(difference);
 	
 	console.log(answer);
 	
-	if (guess === answer) {
-		document.getElementById("result").innerText = "Your guess is correct!";
-		document.getElementById("result").classList.add("correct");
+	if (difference === 0) {
+		document.getElementById("result").innerText = "Your guess is correct !!!";
+		document.getElementById("result").style.color = "#2BAD00";
+	} else if (600 >= difference && difference >= 300) {
+	  document.getElementById("result").innerText = "Your guess is cold :(";
+		document.getElementById("result").style.color = "#3668BD";
+	} else if (299 >= difference && difference >= 100) {
+	  document.getElementById("result").innerText = "Your guess is warm :|";
+		document.getElementById("result").style.color = "#F5A41F";
+	} else if ( difference <= 99) {
+	  document.getElementById("result").innerText = "Your guess is hot :)";
+		document.getElementById("result").style.color = "#cc0000";
 	} else {
-		document.getElementById("result").innerText = "Your guess is incorrect!";
-		document.getElementById("result").classList.add("incorrect");
+		document.getElementById("result").innerText = "You have run out of guesses";
+		document.getElementById("result").style.color = "black";
 	}
 }
 
@@ -87,6 +101,13 @@ const getDetails = function(upc, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
+  let slider = document.getElementById('display_calories-slider');
+  let output = document.getElementById('display_calories-output');
+  
+  slider.oninput = function() {
+    output.innerText = `${this.value}`;
+  } 
+  
   load_new_item();
 });
 
