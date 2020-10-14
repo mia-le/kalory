@@ -9,9 +9,11 @@ class UsersController < ApplicationController
      @percentage_score = 0;
      @percentage_correct = 0;
      
-     if (@user.number_of_plays > 0)
-      @percentage_score = (@user.total_score.to_f / (@user.number_of_plays * 100)).round(2);
-      @percentage_correct = ((@user.number_of_correct_answers.to_f / @user.number_of_plays) * 100).round(2);
+    if( @user.number_of_plays)
+      if(@user.number_of_plays > 0)
+        @percentage_score = (@user.total_score.to_f / (@user.number_of_plays * 100)).round(2);
+        @percentage_correct = ((@user.number_of_correct_answers.to_f / @user.number_of_plays) * 100).round(2);
+      end 
     end
   end
 
