@@ -25,7 +25,7 @@ $orange: #F5A41F;
 }
 
 body {
-  padding-top: 0px;
+  padding-top: 120px;
 }
 
 section {
@@ -154,58 +154,84 @@ p {
 }
 
 
-/* header */
+/* Navigation Header */
 
-.site-navigation {
-  margin-bottom: 20px;
+.navbar {
+  background-color: white;
+}
 
-  nav {
-    background-color: #fff;
+nav {
 
-    ul {
-      list-style-type: none;
-      padding-top: 0px;
-      margin: 0;
-      display: flex;
-      flex: auto;
-      float: center;
-      align-items: center;
+  padding-top: 30px;
 
-      li {
-        flex: 1;
-        flex-basis: auto;
+  .container-fluid {
+    float: left;
+  }
+  .navbar-toggle {
+    //position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: $cherry;
+    background-image: none;
+    border: 4px solid transparent;
+    border-radius: 4px;
 
-
-        a {
-          color: black;
-          display: inline-block;
-          font-size: large;
-          font-weight: 300;
-          padding: 30px 10px;
-          text-decoration: none;
-          text-transform: uppercase;
-          text-align: center;
-        }
-
-        a:hover {
-          background-color: $gray-light;
-          font-weight: bold;
-          flex-basis: auto;
-          color: $cherry;
-        }
-      }
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+      background-color: #fff;
     }
   }
 
-  .cherry {
-    color: $cherry;
-  }
+  ul {
+    list-style-type: none;
+    padding-top: 0px;
+    margin: 0;
+    display: flex;
+    flex: auto;
+    float: center;
+    align-items: center;
 
+    li {
+      flex: 1;
+      flex-basis: auto;
+
+
+      a {
+        color: black;
+        display: inline-block;
+        font-size: large;
+        font-weight: 300;
+        padding: 30px 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      a:hover {
+        background-color: $gray-light;
+        font-weight: bold;
+        flex-basis: auto;
+        color: $cherry;
+      }
+    }
+  }
 }
+
+.cherry {
+  color: $cherry;
+}
+
 
 #logo {
   float: left;
   margin-right: 10px;
+  margin-left: 80px;
   font-size: 1.7em;
   color: black;
   text-transform: uppercase;
@@ -219,11 +245,6 @@ p {
   a {
     padding: none;
   }
-}
-
-.navbar {
-  background-color: $blue;
-  color: #fff;
 }
 
 /* footer */
@@ -250,6 +271,25 @@ footer {
       float: left;
       margin-left: 15px;
     }
+  }
+}
+
+/* UI for Mobile*/
+
+@media (max-width: 800px) {
+  body {
+    padding-top: 111px;
+  }
+  nav {
+    .container-fluid {
+      float: none;
+    }
+  }
+
+  #logo {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
 

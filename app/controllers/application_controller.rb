@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  
+  include SessionsHelper
 =begin
   def guess
     chosen_upc = @upcs.random_thing()
