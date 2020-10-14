@@ -1,10 +1,22 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-<aside class="col-md-4">
-<section class="user_info">
-<h1>
-<%= @user.name %>
-</h1>
-</section>
-</aside>
+
+  <section class="user_info center">
+    <h5><%= @user.name %> </h5>
+    <!-- --> 
+
+    <h1>Your Cumulated Score Percentage Is</h1>
+    <h2><%= @percentage_score %>%</h2>
+    
+    <h1>Your Correct Plays Percentage Is</h1>
+    <h2><%= @percentage_correct %>%</h2>
+    
+    <h3>Total Number of Games: <%= @user.number_of_plays %></h3>
+    <h3>Number of Approximately Correct Guesses: <%= @user.number_of_correct_answers %></h3>
+    <h3>Total Score: <%= @user.total_score %></h3>
+    <h3>Best Single Score: <%= @user.high_score %></h3>
+    <!-- --> 
+    <button class="btn btn-large" onclick="resetMyScore()">Reset My Score</button>
+  </section>
+
 </div>

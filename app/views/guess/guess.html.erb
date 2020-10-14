@@ -1,28 +1,29 @@
 <% provide(:title, "Guess the Calories") %>
 <h2 class = "center">Calories Guessing Game</h2>
 <div class="center jumbotron">
-<button id="btn_load-new" class="btn btn-lg" onclick="load_new_item()">Load New Item</button>
-<h3 id="display_food-name"></h3>
-<h4 id="display_brand-name" class="very-thin-font"></h4>
-<div>
-    
-    <h4 id='display_serving-per-container' style="display: inline"></h4>
-    
-    <h4 id='display_serving-quantity' style="display: inline"></h4>
-    <h4 id='display_serving-unit' style="display: inline"></h4>
+   <div style="text-align:left;">
+      <h4 id='display_remaining-guess'style="display: inline; text-transform:uppercase;"></h4>
+   </div>
+   <button id="btn_load-new" class="btn btn-lg" onclick="load_new_item()">Load New Item</button>
+   <h3 id="display_food-name"></h3>
+   <h4 id="display_brand-name" class="very-thin-font"></h4>
+   <div>
+      <h4 id='display_serving-per-container' style="display: inline"></h4>
+      <h4 id='display_serving-quantity' style="display: inline"></h4>
+      <h4 id='display_serving-unit' style="display: inline"></h4>
+   </div>
+   <h4 id="display_food-description" class="very-thin-font" style="text-transform: none;"></h4>
+   <div class="row">
+      <div  class="col-md-6 col-md-offset-3">
+         <h4 id="display_calories-label" style="display:inline; color:#C80070"></h4>
+         <h4 id="display_calories-output" style="display:inline; color:#C80070"></h4>
+         <div class="slidecontainer">
+            <input type="range" min="1" max="600" value="300" class="slider" id="display_calories-slider" style="display: inline;visibility: hidden;">
+         </div>
+      </div>
+   </div>
+   <button id="btn_check-answer" class="btn btn-lg" onclick="check_answer()">Check your Guess</button>
+   <h3 id="result" class="thin-font" style="text-transform: none;"></h3>
+   <h3 id="score" class="thin-font" style="text-transform: none;"></h3>
+   <button id="btn_try-again" class="btn btn-lg" onclick="load_new_item()" style="visibility: hidden;">Try Again</button>
 </div>
-<h4 id="display_food-description" class="very-thin-font" style="text-transform: none;"></h4>
-<div class="row">
-    <div  class="col-md-6 col-md-offset-3">
-        <h4 id="display_calories-label" style="display:inline; color:#C80070"></h4>
-        <h4 id="display_calories-output" style="display:inline; color:#C80070"></h4>
-        <!--<input id="display_calories-input" style="display: inline;visibility: hidden;" type="number" />-->
-        <div class="slidecontainer">
-          <input type="range" min="1" max="600" value="300" class="slider" id="display_calories-slider" style="display: inline;visibility: hidden;">
-        </div>
-    </div>
-</div>
-    <button id="btn_check-answer" class="btn btn-lg" onclick="check_answer()">Check your Guess</button>
-    <h3 id="result" class="thin-font" style="text-transform: none;"></h3>
-</div>
-

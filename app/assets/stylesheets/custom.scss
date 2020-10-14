@@ -14,6 +14,7 @@ $cherry: #C80070;
 $green: #2BAD00;
 $gray-medium-light: #c3c3c3;
 $orange: #F5A41F;
+$olive: #708831;
 
 
 /* universal */
@@ -117,7 +118,7 @@ h5 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 1.7em;
   line-height: 1.7em;
 }
 
@@ -196,6 +197,11 @@ nav {
     flex: auto;
     float: center;
     align-items: center;
+    
+    .olive {
+      color: $olive;
+      font-weight: 550;
+  }
 
     li {
       flex: 1;
@@ -219,6 +225,8 @@ nav {
         flex-basis: auto;
         color: $cherry;
       }
+
+
     }
   }
 }
@@ -226,6 +234,8 @@ nav {
 .cherry {
   color: $cherry;
 }
+
+
 
 
 #logo {
@@ -343,16 +353,22 @@ input {
 /* home */
 
 .btn {
-  background: $gray-light;
-  border: 3px solid $gray-medium-light;
-  color: $cherry;
   margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 3px solid $olive;
+  background-color: white;
+  color: $olive;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .btn:hover {
-  border: 3px solid $cherry;
-  background-color: $cherry;
+  background: $olive;
   color: white;
+  border: 3px solid white;
+  font-weight: bold;
 }
 
 .jumbotron {
@@ -445,5 +461,31 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
+  }
+}
+
+.user_info {
+  
+  h1 {
+    text-transform: none; 
+    font-size: 30px;
+    color: black;
+  }
+  
+  h2 {
+    color: $olive; 
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  h3 {
+   text-align: left;
+   text-transform: none;
+   color: black;
+   font-size: 20px;
+  }
+  
+  .btn {
+    
   }
 }

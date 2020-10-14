@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav navbar-right collapse navbar-collapse"
          id="bs-example-navbar-collapse-1">
          <li><%= link_to "Home", root_path %></li>
-         <li><%= link_to "Calories Guesser", guess_path, class:'cherry' %></li>
+         <li><%= link_to "Calories Guesser", guess_path, class:'olive', data: { turbolinks: false } %></li>
          <li><%= link_to "Help", help_path %></li>
          <% if logged_in? %>
          <li class="dropdown">
