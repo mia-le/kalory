@@ -75,13 +75,12 @@ let guess_limit = 5;
 function check_answer() {
   guess_times += 1;
   document.getElementById('display_remaining-guess').innerText = `Remaining Guesses: ${guess_limit - guess_times}`;
-  
-	let answer = parseInt(document.getElementById("display_calories-output").getAttribute("answer"));
-	//let answer = 400;
+  let answer = 30;
+	//let answer = parseInt(document.getElementById("display_calories-output").getAttribute("answer"));
 	let guess = parseInt(document.getElementById("display_calories-slider").value);
 	let difference = Math.abs(guess - answer);
-	let score_ratio = (difference/34) * (600-answer) ;
-  let score = Math.floor(100*(100 - score_ratio));
+	let score_ratio = ((34-difference)/34);
+  let score = Math.floor(3200 + (score_ratio*6800));
 	
 	console.log(difference);
 	console.log(answer);
