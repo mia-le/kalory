@@ -75,8 +75,8 @@ let guess_limit = 5;
 function check_answer() {
   guess_times += 1;
   document.getElementById('display_remaining-guess').innerText = `Remaining Guesses: ${guess_limit - guess_times}`;
-  let answer = 30;
-	//let answer = parseInt(document.getElementById("display_calories-output").getAttribute("answer"));
+
+	let answer = parseInt(document.getElementById("display_calories-output").getAttribute("answer"));
 	let guess = parseInt(document.getElementById("display_calories-slider").value);
 	let difference = Math.abs(guess - answer);
 	let score_ratio = ((34-difference)/34);
