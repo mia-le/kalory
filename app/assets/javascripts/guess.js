@@ -36,9 +36,9 @@ function load_new_item() {
   guess_times = 0;
   document.getElementById('display_remaining-guess').innerText = `Remaining Guesses: ${guess_limit - guess_times}`;
   document.getElementById("result").style.visibility = "hidden";
-  document.getElementById("btn_try-again").style.visibility = "hidden";
   document.getElementById("score").style.visibility = "hidden";
-  document.getElementById("btn_check-answer").disabled = false; 
+  document.getElementById("btn_check-answer").innerText = 'Check your Guess';
+  document.getElementById("btn_check-answer").setAttribute( "onClick", "check_answer()" );
   document.getElementById("btn_load-new").innerHTML = "Loading...";
   
   
@@ -82,32 +82,28 @@ function check_answer() {
 	let score_ratio = ((34-difference)/34);
   let score = Math.floor(3200 + (score_ratio*6800));
 	
-	console.log(difference);
-	console.log(answer);
-	
 	document.getElementById("result").style.visibility = "visible";
 	
 	if (guess_times < guess_limit) {
   	if (difference <= 34) {
   	  // the score is whatever the score is..
   	  postScoreUpdate(score);
-  		
+  		guess_times = 0;
   		document.getElementById("result").innerText = `Correct !! You guessed ${guess} out of ${answer} calories.`;
   		document.getElementById("score").style.visibility = "visible";
   		document.getElementById("score").innerText = `Score: ${score}/10000 `;
   		document.getElementById("result").style.color = "#2BAD00";
-  		document.getElementById("btn_check-answer").disabled = true; 
-  		guess_times = 0;
-  		document.getElementById("btn_try-again").style.visibility = "visible";
+  		document.getElementById("btn_check-answer").innerText = 'Try Again';
+  		document.getElementById("btn_check-answer").setAttribute( "onClick", "load_new_item()" );
   	} else if (600 >= difference && difference >= 300) {
-  	  document.getElementById("result").innerText = "Your guess is cold :(";
   		document.getElementById("result").style.color = "#3668BD";
+  		document.getElementById("result").innerText = "Your guess is cold :(";
   	} else if (299 >= difference && difference >= 100) {
-  	  document.getElementById("result").innerText = "Your guess is warm :|";
   		document.getElementById("result").style.color = "#F5A41F";
+  		document.getElementById("result").innerText = "Your guess is warm :|";
   	} else if (99 >= difference && difference >= 35) {
-  	  document.getElementById("result").innerText = "Your guess is hot :)";
   		document.getElementById("result").style.color = "#cc0000";
+  		document.getElementById("result").innerText = "Your guess is hot :)";
   	} 
 	}  else {
 	    // the score is zero
@@ -117,8 +113,8 @@ function check_answer() {
   		document.getElementById("result").style.color = "black";
   		document.getElementById("score").style.visibility = "visible";
   		document.getElementById("score").innerText = `Score: 0/10000 `;
-  		document.getElementById("btn_try-again").style.visibility = "visible";
-  		document.getElementById("btn_check-answer").disabled = true; 
+  		document.getElementById("btn_check-answer").innerText = 'Try Again';
+  		document.getElementById("btn_check-answer").setAttribute( "onClick", "load_new_item()" );
   	}
 }
 
